@@ -8,8 +8,8 @@ import java.util.Scanner;
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class VehicleRentingApp{
-    Scanner scanner = new Scanner(System.in);
-
+    // Declare scanner
+    private static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
 
         // Initialize the vehicle rental system
@@ -27,7 +27,7 @@ public class VehicleRentingApp{
             System.out.println("6. Rent a vehicle");
             System.out.println("7. Exit");
             System.out.println("Enter your choice: ");
-            int choice = new Scanner(System.in).nextInt();
+            int choice = scanner.nextInt();
             switch(choice){
                 case 1:
                     vehicleRentalSystem.viewVehiclesSortedByYear();
@@ -44,22 +44,22 @@ public class VehicleRentingApp{
                     break;
                 case 5:
                     System.out.println("Enter personal id: ");
-                    String personalId = new Scanner(System.in).nextLine();
+                    String personalId = scanner.nextLine();
                     vehicleRentalSystem.viewHistoryOfRentsByPersonalId(personalId);
                     break;
                 case 6:
                     System.out.println("Enter personal id: ");
-                    String personalId1 = new Scanner(System.in).nextLine();
+                    String personalId1 = scanner.nextLine();
                     System.out.println("The available cars are: ");
                     vehicleRentalSystem.getAvailableVehicles().forEach(System.out::println);
                     System.out.println("Enter registration number of the car you want to rent: ");
-                    String registrationNumber = new Scanner(System.in).nextLine();
+                    String registrationNumber = scanner.nextLine();
                     System.out.println("Enter start date: ");
-                    String startDate = new Scanner(System.in).nextLine();
+                    String startDate = scanner.nextLine();
                     System.out.println("Enter end date: ");
-                    String endDate = new Scanner(System.in).nextLine();
+                    String endDate = scanner.nextLine();
                     System.out.println("Enter kilometers: ");
-                    int kilometers = new Scanner(System.in).nextInt();
+                    int kilometers = scanner.nextInt();
                     vehicleRentalSystem.rentVehicle(personalId1, registrationNumber, startDate, endDate, kilometers);
                     break;
                 case 7:
@@ -75,7 +75,7 @@ public class VehicleRentingApp{
         String type;
         System.out.println("Enter type of vehicle: ");
         do{
-            type = new Scanner(System.in).nextLine();
+            type = scanner.nextLine();
             for (VehicleType vehicleType : VehicleType.values()) {
                 if (vehicleType.toString().equals(type)) {
                     return type;
